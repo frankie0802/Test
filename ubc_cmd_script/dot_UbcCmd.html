@@ -5,6 +5,8 @@
     <title>UBC&CMD打点测试工具</title>
     <!--  Bootstrap 核心 CSS 文件 -->
     <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <!-- 可选的Bootstrap主题文件（一般不使用） -->
+    <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap-theme.min.css"></script>
     <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
     <script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
     <!--  Bootstrap 核心 JavaScript 文件 -->
@@ -53,8 +55,16 @@
                             <option>102</option>
                             <option>109</option>
                         </select>
+                    </form>
+                    <br/>
+                    <form class="form-inline">
+                        <label>客&nbsp;&nbsp;户&nbsp;&nbsp;端:</label>
+                        <select class="form-control" id="selectid3">
+                            <option>Android</option>
+                            <option>IOS</option>
+                        </select>
                         &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                        <button id="btnselect" onclick="getValue()">确定</button>
+                        <button id="btnselect" onclick="">确定</button>
                     </form>
                     <br/>
                     <span style="font-weight:bold">标准参考：</span>
@@ -65,6 +75,7 @@
                 </div>
                 <div class="col-md-6 column">
                     <span style="font-weight:bold">JSON：</span>
+                    &nbsp&nbsp&nbsp&nbsp<button id="btnrefresh" onclick="getValue()">刷新</button>
                     <br/><br/>
                     <textarea id="revText" name="revText" rows=24 style="overflow-x:hidden;width:90%;hight:300px">
                     	
@@ -96,6 +107,10 @@
             
             success:function(json){
             	alert(json);
+                var result = JSON.stringify(JSON.parse(json),null,4); 
+                //var jsonresult = objStr.replace(/\n/g, '<br>').replace(/\s/g, '&nbsp');
+                //revText.value=result;
+                $('#revText').val(result);
 
           //   	var obj = document.getElementById("revText");  
        			// obj.append('dasdasdas2222222222');   
@@ -135,5 +150,8 @@
 
 
 </script>
+<footer style="padding:20px;text-align:center;color:#999;position:relative;">
+联系邮箱：zhangjie43@baidu.com
+</footer>
 </body>
 </html>
